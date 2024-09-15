@@ -1,4 +1,6 @@
 import { createWelcomePageView } from "../views/welcomePageView.js";
+import { errorMessage } from "./errorPages.js";
+
 
 export const searchCountry = async () => {
 
@@ -6,18 +8,20 @@ export const searchCountry = async () => {
 
   if (country === '') {
    errorMessage();
+   return;
   }
  
   try {
-    const countryData = await fetch (`htttps://restcountries.com/v3.1/all`);
+    const countryData = await fetch (`https://restcountries.com/v3.1/all`);
     const data = await countryData.json();
 
     // find the country by name
 
-    const countryInfo = data.find((country) => country.name.common.toLowerCase() === country.toLowerCase());
+    const countryInfo = data.find((c) => c.name.common.toLowerCase() === country.toLowerCase());
 
     if (!countryInfo) {
       errorMessage();
+      return;
     }
 
     // display the country info
@@ -35,6 +39,7 @@ export const searchCountry = async () => {
     `;
     
   } catch (error) {
+    console.error('error fetching country data', error);  // for debugging purposes
     errorMessage();
   };
 };
