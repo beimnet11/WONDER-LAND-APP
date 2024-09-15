@@ -1,6 +1,8 @@
  import { searchCountry } from '../pages/welcomePage.js';
 
 
+
+
 export const createWelcomePageView = () => {
 
 const userInterface = document.getElementById('user-interface');

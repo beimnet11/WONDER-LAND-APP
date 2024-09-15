@@ -1,5 +1,6 @@
 import { createWelcomePageView } from "../views/welcomePageView.js";
 import { errorMessage } from "./errorPages.js";
+import { showLoading, hideLoading } from "../utility/loadPage.js";
 
 
 export const searchCountry = async () => {
@@ -10,6 +11,8 @@ export const searchCountry = async () => {
    errorMessage();
    return;
   }
+
+  showLoading();
  
   try {
     const countryData = await fetch (`https://restcountries.com/v3.1/all`);
@@ -20,6 +23,7 @@ export const searchCountry = async () => {
     const countryInfo = data.find((c) => c.name.common.toLowerCase() === country.toLowerCase());
 
     if (!countryInfo) {
+      hideLoading();  
       errorMessage();
       return;
     }
@@ -37,10 +41,12 @@ export const searchCountry = async () => {
     <p>Region: ${countryInfo.region}</p>
     <img src="${countryInfo.flags.png}" alt="flag of ${countryInfo.name.common}">
     `;
-    
+
     
   } catch (error) {
     console.error('error fetching country data', error);  // for debugging purposes
     errorMessage();
-  };
+  } finally {
+    hideLoading();
+  }
 };
