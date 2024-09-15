@@ -1,3 +1,5 @@
+ import { searchCountry } from '../pages/welcomePage.js';
+
 
 export const createWelcomePageView = () => {
 
