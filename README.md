@@ -34,5 +34,5 @@ The **Country Information Lookup** application allows users to search for inform
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/country-lookup-app.git
+   git clone https://github.com/beimnet11/WONDER-LAND-APP.git
 
