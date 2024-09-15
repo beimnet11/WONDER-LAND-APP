@@ -38,6 +38,7 @@ export const searchCountry = async () => {
     <img src="${countryInfo.flags.png}" alt="flag of ${countryInfo.name.common}">
     `;
     
+    
   } catch (error) {
     console.error('error fetching country data', error);  // for debugging purposes
     errorMessage();
