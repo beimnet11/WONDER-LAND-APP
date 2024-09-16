@@ -91,18 +91,12 @@ button:hover {
   text-decoration: underline;
 }
 
-
-
-.error {
+.error-message {
   color: #e74c3c;
   font-size: 16px;
   margin-top: 10px;
 }
 
-
-
-
- 
 .loading {
   border: 16px solid #f3f3f3; 
   border-top: 16px solid #3498db; 
@@ -117,59 +111,3 @@ button:hover {
   100% { transform: rotate(360deg); }
 }
 
-/*
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f8ff;
-  text-align: center;
-}
-
-h1, h2, h3 {
-  color: #333;
-}
-
-input[type="text"], button {
-  padding: 10px;
-  margin: 5px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.country-info {
-  margin-top: 20px;
-}
-
-.country-info img {
-  width: 150px;
-}
-
-.news-article {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
-  text-align: left;
-}
-
-.news-article h4 {
-  margin: 0 0 5px;
-}
-
-.loading {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #555;
-}
-
-.error {
-  color: red;
-} */
