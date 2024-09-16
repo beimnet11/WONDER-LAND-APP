@@ -15,17 +15,16 @@ export const searchCountry = async () => {
   showLoading();
  
   try {
-    const countryData = await fetch (`https://restcountries.com/v3.1/all`);
+    const countryData = await fetch (`https://restcountries.com/v3.1/name/${country}`); // fetch the country data
     const data = await countryData.json();
 
-    // find the country by name
+    
+    const countryInfo = data[0];
+    
 
-    const countryInfo = data.find((c) => c.name.common.toLowerCase() === country.toLowerCase());
-
-    if (!countryInfo) {
+    if (!countryData.ok) {
       hideLoading();  
-      errorMessage();
-      return;
+      throw new Error('Country not found');
     }
 
     // display the country info
