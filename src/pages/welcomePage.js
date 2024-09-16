@@ -1,51 +1,85 @@
+
 import { createWelcomePageView } from "../views/welcomePageView.js";
 import { errorMessage } from "./errorPages.js";
 import { showLoading, hideLoading } from "../utility/loadPage.js";
 
 
-export const searchCountry = async () => {
+// Fetch News Information
+const fetchNewsData = async (countryName) => {
+  const apiKey = '010bcef794cd4070b34f796b6b110317'; // Replace with your NewsAPI key
+  const newsData = await fetch(`https://newsapi.org/v2/everything?q=${countryName}&apiKey=${apiKey}`);
+  const news = await newsData.json();
+  return news.articles;
+};
 
+// Search Country and Fetch News
+export const searchCountry = async () => {
   const country = document.getElementById('search').value;
 
+  // clear previous result and error message
+
+  const resultContainer = document.getElementById('result-container');
+  resultContainer.innerHTML = ''; // clear any previous result
+
+  // clear previous error message
+
+  const existingError = document.querySelector('.error-message');
+  if (existingError) {
+    existingError.remove();
+  }
+
+
   if (country === '') {
-   errorMessage();
-   return;
+    errorMessage();
+    return;
   }
 
   showLoading();
- 
+  
   try {
-    const countryData = await fetch (`https://restcountries.com/v3.1/name/${country}`); // fetch the country data
+    const countryData = await fetch(`https://restcountries.com/v3.1/name/${country}`);
     const data = await countryData.json();
-
-    
     const countryInfo = data[0];
-    
 
     if (!countryData.ok) {
-      hideLoading();  
+      hideLoading();
       throw new Error('Country not found');
     }
 
-    // display the country info
 
-    const resultContainer = document.getElementById('result-container');
+    // Fetch news related to the country
+    const newsArticles = await fetchNewsData(countryInfo.name.common);
 
+   // const resultContainer = document.getElementById('result-container');
     resultContainer.innerHTML = `
-    <div class="country-info">
-    <h2>${countryInfo.name.common}</h2>
-    <p>Capital: ${countryInfo.capital}</p>
-    <p>Population: ${countryInfo.population}</p>
-    <p>Area: ${countryInfo.area}</p>
-    <p>Region: ${countryInfo.region}</p>
-    <img src="${countryInfo.flags.png}" alt="flag of ${countryInfo.name.common}">
-    `;
 
+      <div class="country-info">
+        <h2>${countryInfo.name.common}</h2>
+        <p>Capital: ${countryInfo.capital}</p>
+        <p>Population: ${countryInfo.population}</p>
+        <p>Area: ${countryInfo.area}</p>
+        <p>Region: ${countryInfo.region}</p>
+        <img src="${countryInfo.flags.png}" alt="flag of ${countryInfo.name.common}">
+        
     
+
+
+        <h3>Latest News</h3>
+        ${newsArticles.map(article => `
+          <div class="news-article">
+            <h4>${article.title}</h4>
+            <p>${article.description}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+          </div>
+        `).join('')}
+      </div>
+    `;
   } catch (error) {
-    console.error('error fetching country data', error);  // for debugging purposes
+    console.error('Error fetching country or weather data', error);
     errorMessage();
   } finally {
     hideLoading();
   }
 };
+
+
