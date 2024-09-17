@@ -1,35 +1,57 @@
-# WONDER LAND
+# Country Lookup and News Fetcher
+
+![App screenshot](images/Screenshot%202024-09-17%20222030.png)
 
 ## Overview
 
-The **Country Information Lookup** application allows users to search for information about countries. By entering the name of a country, users can view details such as its capital, population, area, region, and flag. The app provides a user-friendly interface with a loading spinner that appears while data is being fetched.
+This web application allows users to search for country information and fetch related news articles. The application provides details such as the country's capital, population, area, region, and flag. It also retrieves and displays the latest news articles related to the searched country.
 
 ## Features
 
-- **Country Search**: Users can type the name of a country into a search bar and click "Search" to retrieve information.
-- **Country Details**: Displays details about the country, including:
-  - Capital
-  - Population
-  - Area
-  - Region
-  - Flag
-- **Loading Indicator**: A rotating spinner appears while the application is fetching data to indicate that a request is in progress.
-- **Error Handling**: Displays appropriate error messages if the country is not found or if there is an issue with fetching data.
+![App screenshot](images/Screenshot%202024-09-17%20222500.png)
+
+- Search for country information by name.
+- Display details including capital, population, area, region, and flag.
+- Fetch and show the latest news articles related to the country.
+- User-friendly interface with loading indicators and error messages.
+
+![App screenshot](images/Screenshot%202024-09-17%20222651.png)
 
 ## Technologies Used
 
-- **HTML**: For structuring the web page.
-- **CSS**: For styling the user interface, including the loading spinner.
-- **JavaScript**: For handling user interactions, fetching data from the REST Countries API, and updating the DOM.
+- HTML
+- CSS
+- JavaScript
+- [REST Countries API](https://restcountries.com/v3.1/name/${countryName}) for fetching country data.
+- [News API](https://newsapi.org/v2/everything?q=${countryName}&apiKey=${apiKey}) for fetching news articles.
 
-## How It Works
+## How to Use
 
-1. **User Interaction**: Users enter the name of a country into the search input field and click the "Search" button.
-2. **Data Fetching**: The application makes a request to the [REST Countries API](https://restcountries.com/v3.1/all) to fetch data about all countries.
-3. **Display Results**: Once the data is received, the application finds the matching country and displays its details. If the country is not found, an error message is shown.
-4. **Loading Spinner**: While the data is being fetched, a loading spinner is shown to indicate that the application is processing the request.
+1. **Load the Welcome Page**:
+   - The application initially loads a welcome page with a search functionality.
 
-## Installation
+2. **Search for a Country**:
+   - Enter the name of the country in the search box and click the "Search" button.
+   - The application will display country information including the flag, capital, population, area, and region.
+   - Latest news articles related to the country will also be shown.
+
+3. **Error Handling**:
+   - If no country is provided, an error message will be displayed.
+   - Any errors during data fetching will also show an error message.
+
+## File Structure
+
+- `index.html` - Main HTML file.
+- `styles.css` - Styles for the application.
+- `scripts/`
+  - `errorPages.js` - Handles error message display.
+  - `loadPage.js` - Manages loading indicators.
+  - `fetchNews.js` - Contains the function for fetching news articles.
+  - `fetchCountry.js` - Contains the function for fetching country information.
+  - `welcomePageView.js` - Creates and returns the welcome page view.
+  - `app.js` - Main application logic, including search functionality and rendering.
+
+## Setup
 
 1. Clone the repository:
 

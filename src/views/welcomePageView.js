@@ -1,12 +1,6 @@
-
-
-
-
 export const createWelcomePageView = () => {
-
-
-const welcomePageView = document.createElement('div');
-welcomePageView.innerHTML = `
+  const welcomePageView = document.createElement('div');
+  welcomePageView.innerHTML = `
 <div class="welcome-page">
 <h1> country Information Look Up</h1>
 
@@ -15,7 +9,5 @@ welcomePageView.innerHTML = `
 </div>
 `;
 
-return welcomePageView;
+  return welcomePageView;
 };
-
-
