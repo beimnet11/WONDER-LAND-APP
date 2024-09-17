@@ -8,13 +8,5 @@ export const fetchNews = async (countryName) => {
   }
   const news = await response.json();
 
-  const filteredNews = news.articles.filter(
-    (article) =>
-      article.title &&
-      article.description &&
-      article.url &&
-      !article.title.includes('[removed]'),
-  );
-
   return filteredNews;
 };
