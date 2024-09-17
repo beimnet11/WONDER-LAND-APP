@@ -1,4 +1,4 @@
-import { searchCountry } from "./welcomePage.js";
+
 
 export const errorMessage = () => {
   const userInterface = document.getElementById('user-interface');

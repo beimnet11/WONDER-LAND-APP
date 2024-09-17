@@ -1,6 +1,7 @@
-import {createWelcomePageView} from './src/views/welcomePageView.js';
+import { loadWelcomePage } from "./src/pages/welcomePage.js";
 
 const loadApp = () => {
-  createWelcomePageView(); // This will create and append the welcome page to the DOM
+
+  loadWelcomePage(); // This will create and append the welcome page to the DOM
 };
 window.addEventListener('load', loadApp);

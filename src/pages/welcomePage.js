@@ -1,7 +1,8 @@
 
-import { createWelcomePageView } from "../views/welcomePageView.js";
+
 import { errorMessage } from "./errorPages.js";
 import { showLoading, hideLoading } from "../utility/loadPage.js";
+import { createWelcomePageView } from "../views/welcomePageView.js";
 
 
 // Fetch News Information
@@ -12,6 +13,20 @@ const fetchNewsData = async (countryName) => {
   return news.articles;
 };
 
+
+// render welcome page and search functionality
+
+export const loadWelcomePage = () => {
+  const userInterface = document.getElementById('user-interface');
+   userInterface.innerHTML = ''; // clear any previous
+  
+  const welcomeElement = createWelcomePageView();
+  userInterface.appendChild(welcomeElement);
+  
+  document
+  .getElementById('search-btn')
+  .addEventListener('click',searchCountry);
+};
 // Search Country and Fetch News
 export const searchCountry = async () => {
   const country = document.getElementById('search').value;
@@ -75,7 +90,7 @@ export const searchCountry = async () => {
       </div>
     `;
   } catch (error) {
-    console.error('Error fetching country or weather data', error);
+    console.error('Error fetching country', error);
     errorMessage();
   } finally {
     hideLoading();
