@@ -39,17 +39,17 @@ This web application allows users to search for country information and fetch re
    - If no country is provided, an error message will be displayed.
    - Any errors during data fetching will also show an error message.
 
-## File Structure
+## Files
 
 - `index.html` - Main HTML file.
 - `styles.css` - Styles for the application.
-- `scripts/`
-  - `errorPages.js` - Handles error message display.
-  - `loadPage.js` - Manages loading indicators.
-  - `fetchNews.js` - Contains the function for fetching news articles.
-  - `fetchCountry.js` - Contains the function for fetching country information.
-  - `welcomePageView.js` - Creates and returns the welcome page view.
-  - `app.js` - Main application logic, including search functionality and rendering.
+
+- `errorPages.js` - Handles error message display.
+- `loadPage.js` - Manages loading indicators.
+- `fetchNews.js` - Contains the function for fetching news articles.
+- `fetchCountry.js` - Contains the function for fetching country information.
+- `welcomePageView.js` - Creates and returns the welcome page view.
+- `app.js` - Main application logic, including search functionality and rendering.
 
 ## Setup
 
