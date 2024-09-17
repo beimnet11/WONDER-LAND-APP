@@ -2,6 +2,6 @@ import { loadWelcomePage } from "./src/pages/welcomePage.js";
 
 const loadApp = () => {
 
-  loadWelcomePage(); // This will create and append the welcome page to the DOM
+  loadWelcomePage(); 
 };
 window.addEventListener('load', loadApp);

@@ -49,7 +49,6 @@ const searchCountry = async () => {
     // Fetch news related to the country
     const newsArticles = await fetchNews(countryInfo.name.common);
 
-    // const resultContainer = document.getElementById('result-container');
     resultContainer.innerHTML = `
 
       <div class="country-info">
