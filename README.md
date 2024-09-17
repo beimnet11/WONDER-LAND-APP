@@ -22,8 +22,8 @@ This web application allows users to search for country information and fetch re
 - HTML
 - CSS
 - JavaScript
-- [REST Countries API](https://restcountries.com/v3.1/name/${countryName}) for fetching country data.
-- [News API](https://newsapi.org/v2/everything?q=${countryName}&apiKey=${apiKey}) for fetching news articles.
+- [REST Countries API]( https://restcountries.com/v3.1/all) for fetching country data.
+- [News API](https://newsapi.org/v2/everyting) for fetching news articles.
 
 ## How to Use
 
