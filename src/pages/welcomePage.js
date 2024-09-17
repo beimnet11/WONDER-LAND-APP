@@ -3,17 +3,11 @@
 import { errorMessage } from "./errorPages.js";
 import { showLoading, hideLoading } from "../utility/loadPage.js";
 import { createWelcomePageView } from "../views/welcomePageView.js";
-
+import { fetchNewsData } from "./fetchNewsPage.js";
 
 // Fetch News Information
-const fetchNewsData = async (countryName) => {
-  const apiKey = '010bcef794cd4070b34f796b6b110317'; // Replace with your NewsAPI key
-  const newsData = await fetch(`https://newsapi.org/v2/everything?q=${countryName}&apiKey=${apiKey}`);
-  const news = await newsData.json();
-  return news.articles;
-};
 
-
+fetchNewsData();
 // render welcome page and search functionality
 
 export const loadWelcomePage = () => {
