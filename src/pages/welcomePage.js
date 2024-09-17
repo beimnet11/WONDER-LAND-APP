@@ -40,6 +40,9 @@ const searchCountry = async () => {
 
   showLoading();
 
+  const formatNumberWithCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
   try {
     const countryInfo = await fetchCountry(country);
 
@@ -52,16 +55,12 @@ const searchCountry = async () => {
       <div class="country-info">
         <h2>${countryInfo.name.common}</h2>
         <p>Capital: ${countryInfo.capital}</p>
-        <p>Population: ${countryInfo.population}</p>
-        <p>Area: ${countryInfo.area}</p>
+        <p>Population: ${formatNumberWithCommas(countryInfo.population)}</p>
+        <p>Area: ${formatNumberWithCommas(countryInfo.area)} km²</p>
         <p>Region: ${countryInfo.region}</p>
         <img src="${countryInfo.flags.png}" alt="flag of ${
       countryInfo.name.common
     }">
-        
-    
-
-
         <h3>Latest News</h3>
         ${newsArticles
           .map(

@@ -1,14 +1,64 @@
+/* Body styling with a darker gradient background */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%); /* Darker gradient */
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+h1, h2, h3 {
+  color: #f0f8ff; /* Light text for contrast */
+}
 
+/* Welcome page header styling */
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  color: #928635; /* Yellow/Gold color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for effect */
+  margin-bottom: 20px;
+}
 
+/* Input and Button Styling */
+input[type="text"], button {
+  padding: 12px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Loading Spinner */
 .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
   border: 16px solid #f3f3f3; 
   border-top: 16px solid #3498db; 
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  animation: spin 5s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
 }
 
 @keyframes spin {
@@ -16,58 +66,59 @@
   100% { transform: rotate(360deg); }
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f8ff;
-  text-align: center;
-}
-
-h1, h2, h3 {
-  color: #333;
-}
-
-input[type="text"], button {
-  padding: 10px;
-  margin: 5px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
+/* Country Info Styling */
 .country-info {
   margin-top: 20px;
+  background-color: #3c3f41; /* Darker background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: auto;
+  color: #f0f8ff; /* Light text for better contrast */
 }
 
 .country-info img {
   width: 150px;
+  margin-bottom: 10px;
 }
 
+/* News Article Styling */
 .news-article {
-  background-color: #fff;
+  background-color: #44475a; /* Dark background for articles */
   border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto;
+  color: #f0f8ff;
 }
 
 .news-article h4 {
-  margin: 0 0 5px;
+  margin: 0 0 10px;
 }
 
-.loading {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #555;
+.news-article p {
+  margin-bottom: 10px;
 }
 
+.news-article a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.news-article a:hover {
+  text-decoration: underline;
+}
+
+/* Error message styling */
 .error {
   color: red;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
 }
